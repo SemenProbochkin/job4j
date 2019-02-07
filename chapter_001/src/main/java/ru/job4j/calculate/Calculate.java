@@ -1,8 +1,15 @@
 package ru.job4j.calculate;
-public class Calculate
-{
-	public static void main(String[] args)
-	{
+ /**
+ * Calculate.
+ *
+ *@author Probochkin.Semen
+ */
+public class Calculate{
+	/**
+	* Main
+	* @param args - arg.
+	*/
+	public static void main(String[] args){
 System.out.println("We will not use 'Hello, World'");
 }
 }
