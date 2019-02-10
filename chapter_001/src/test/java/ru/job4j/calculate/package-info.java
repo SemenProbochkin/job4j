@@ -1,5 +1,5 @@
 /**
-* Package for calculatetest task.
+* Package for calculate task.
 *
 * @author Probochkin Semen (semion.probochkin@yandex.ru)
 * @version $Id$
