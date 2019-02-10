@@ -18,7 +18,7 @@ public class CalculateTest {
 @Test
 public void whenTakeNameThenThreeEchoPlusName() {
     String input = "Semen Probockins";
-    String expect = "Echo, echo, echo : Semen Probockins"; 
+    String expect = "Echo, echo, echo : Semen Probockins";
     Calculate calc = new Calculate();
     String result = calc.echo(input);
     assertThat(result, is(expect));
