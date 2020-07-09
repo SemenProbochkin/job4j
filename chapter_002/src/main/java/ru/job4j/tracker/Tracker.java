@@ -1,11 +1,15 @@
 package ru.job4j.tracker;
+
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Arrays;
 public class Tracker {
     /**
      * Массив для хранения заявок.
      */
-    private final Item[] items = new Item[100];
+    private final List<Item> items = new ArrayList<>();
 
     /**
      * Указатель ячейки для новой заявки.
@@ -18,47 +22,34 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(generateId());
-        items[position++] = item;
+        items.add(item);
+        //this.items[this.position++] = item;
         return item;
     }
-    public Item[] findAll(){
-        Item[] result = new Item[this.position];
+    public List <Item> findAll(){
+        return items;
+        }
 
-        int size=0;
 
-        for ( int i = 0; this.items.length>i ;i++){
+    public  List<Item> findByName(String key){
+        List<Item> result = new ArrayList<>();
 
-            if (this.items[i]!=null ) {
-                // String name = this.items[i].getName();
 
-                result[i]= this.items[i];
 
-                size++;
+
+        for ( int i = 0; i != this.items.size() ;i++){
+
+            if (items.get(i)!=null && items.get(i).getName().equals(key)) {
+
+
+                result.add(items.get(i));
+
+
 
 
             }
         }
-        result = Arrays.copyOf(result, size);
-        return result;
-    }
-    public Item[] findByName(String key){
-          Item[] result = new Item[this.position];
 
-          int size=0;
-
-        for ( int i = 0; this.items.length>i ;i++){
-
-            if (this.items[i]!=null && this.items[i].getName().equals(key)) {
-                  // String name = this.items[i].getName();
-
-               result[i]= this.items[i];
-
-                    size++;
-
-
-            }
-        }
-        result = Arrays.copyOf(result, size);
         return result;
     }
     public Item findById(String id){
@@ -70,6 +61,38 @@ public class Tracker {
             }
         }
         return result;
+    }
+    public void  editItem(String id,String name){
+
+        for (Item item : items){
+            if ( item != null && item.getId().equals(id)){
+
+                item.setName(name);
+                break;
+            }
+
+        }
+
+    }
+    public Boolean deleteItem (String id){
+
+
+ boolean result = false;
+
+        for ( int i = 0; i != this.items.size() ;i++){
+
+            if (items.get(i).getId().equals(id) ) {
+
+
+                items.remove(i);
+                 result = true;
+
+                 break;
+
+            }
+        }
+         return result;
+
     }
     /**
      * Метод генерирует уникальный ключ для заявки.
