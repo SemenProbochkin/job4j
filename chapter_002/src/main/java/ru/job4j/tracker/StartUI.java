@@ -8,11 +8,11 @@ public class StartUI {
 
     private final Tracker tracker;
 
-    private final Input input;
+    private final  Input input;
 
 
 
-    private void init() {
+    public void init() {
         boolean run = true;
         while (run!=false) {
             this.showMenu();
@@ -61,7 +61,7 @@ public class StartUI {
             else  if (select == 5) {
                 System.out.println("------------ Find item by Name --------------");
                 String name = this.input.ask("Enter Name: ");
-                List<Item> result = new ArrayList<>();
+                List<Item> result;
 
                 result = this.tracker.findByName(name);
                 if (result != null) {
